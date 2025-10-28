@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель Fraud Detection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            margin: 20px 0;
+        }
+        
+        .nav-button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .nav-button:hover {
+            background: #0056b3;
+        }
+        
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        
+        .status-approved { color: green; }
+        .status-declined { color: red; }
+        .status-pending { color: orange; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Админ-панель Fraud Detection</h1>
+            <nav>
+                <button class="nav-button" onclick="showSection('transactions')">Транзакции</button>
+                <button class="nav-button" onclick="showSection('rules')">Правила</button>
+                <button class="nav-button" onclick="showSection('analytics')">Аналитика</button>
+                <button class="nav-button" onclick="exportTransactions()">Экспорт CSV</button>
+            </nav>
+        </header>
+
+        <!-- Секция транзакций -->
+        <div id="transactions-section" class="section">
+            <h2>Транзакции</h2>
+            <div id="transactions-content">
+                <div class="loading">Загрузка транзакций...</div>
+            </div>
+        </div>
+
+        <!-- Секция правил -->
+        <div id="rules-section" class="section" style="display: none;">
+            <h2>Правила</h2>
+            <button class="nav-button" onclick="showCreateRuleForm()">Создать правило</button>
+            <div id="rules-content">
+                <div class="loading">Загрузка правил...</div>
+            </div>
+        </div>
+
+        <!-- Секция аналитики -->
+        <div id="analytics-section" class="section" style="display: none;">
+            <h2>Аналитика</h2>
+            <div id="analytics-content">
+                <div class="loading">Загрузка аналитики...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

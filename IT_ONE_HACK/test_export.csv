@@ -1,0 +1,5 @@
+ID,Amount,Currency,Merchant,User ID,Status,Created At
+f4f27a12-c32b-4a60-8415-e5293f5eb4b5,1.0,USD,Test,test_user,received,2025-10-26T14:12:58.406835+00:00
+5f76621a-f177-4f94-9b4c-2703d696fb25,150.5,USD,Amazon,user_123,received,2025-10-26T14:12:58.452812+00:00
+93db9f61-de41-4f53-b3ff-c5c530eef7d9,50000.0,USD,Unknown Merchant,user_456,received,2025-10-26T14:12:58.497533+00:00
+ff819dfa-ef52-4582-ae59-dbc726dcab1a,25.0,EUR,Starbucks,user_789,received,2025-10-26T14:12:58.535880+00:00
